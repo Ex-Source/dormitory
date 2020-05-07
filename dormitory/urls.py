@@ -27,6 +27,8 @@ xadmin.autodiscover()
 xversion.register_models()
 urlpatterns = [
     path('index/',views.index),
+    path('index/info/',views.info),
+    path('index/pay/',views.pay),
     path('login/',views.login),
     path('register/', views.register),
     path('logout/', views.logout),

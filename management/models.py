@@ -17,6 +17,16 @@ class Student(models.Model):
         verbose_name_plural ='学生'
 
 
+class Mistake(models.Model):
+    mistake_id = models.ForeignKey(to='Student',verbose_name=' 学号',on_delete=models.CASCADE)
+    case = models.CharField(max_length=100,verbose_name='违纪原因')
+    date = models.DateTimeField('违纪时间')
+    class Meta:
+        verbose_name='违纪信息'
+        verbose_name_plural='违纪信息'
+
+
+
 class Room(models.Model):
     room_id = models.CharField(max_length=3,verbose_name='宿舍号')
     room_building =models.ForeignKey(to='Building',verbose_name='宿舍楼',on_delete=models.CASCADE)

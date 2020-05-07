@@ -4,6 +4,8 @@ from django.shortcuts import render
 from django.shortcuts import render
 from django.shortcuts import redirect
 from . import models
+from management import models
+from django.views.generic import ListView
 # Create your views here.
 
 
@@ -54,3 +56,18 @@ def logout(request):
         return redirect("/login/")
     request.session.flush()
     return redirect("/login/")
+
+def info(request):
+    mistake = request.session.get('user_id')
+    mistake_list = models.Mistake.objects.filter(mistake_id=mistake)
+    return render(request,'login/info.html',{"mistake_list": mistake_list})
+
+def pay(request):
+    return render(request,'login/pay.html')
+
+# class InfoListView(ListView):
+#     """通用视图"""
+#     models = Mistake    #指定类
+#     context_object_name = 'mistake'    #courses被传到模板中
+#     template_name = "login/info.html"  #渲染页面
+

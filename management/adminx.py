@@ -1,5 +1,5 @@
 import xadmin
-from .models import Student, Room,Building
+from .models import Student, Room,Building,Mistake
 from xadmin import views
 
 
@@ -26,7 +26,11 @@ class RoomAdmin(object):
     is_execute = True
     list_display = ('room_id', 'room_building')
 
+class MistakeAdmin(object):
+    is_execute = True
+    list_display = ('mistake_id','case','date')
 
+xadmin.site.register(Mistake,MistakeAdmin)
 xadmin.site.register(Student, StudentAdmin)
 xadmin.site.register(Room, RoomAdmin)
 xadmin.site.register(Building)
