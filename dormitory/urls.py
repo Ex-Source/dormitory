@@ -21,15 +21,17 @@ from django.urls import path
 from xadmin.plugins import xversion
 
 from management.views import SelectView
-from login import views
+from student import views
 
 xadmin.autodiscover()
 xversion.register_models()
 urlpatterns = [
+    path('index/pw/',views.pw),
     path('index/',views.index),
     path('index/info/',views.info),
     path('index/pay/',views.pay),
-    path('login/',views.login),
+    path('index/repair/',views.repair),
+    path('student/',views.login),
     path('register/', views.register),
     path('logout/', views.logout),
     path('xadmin/', xadmin.site.urls),

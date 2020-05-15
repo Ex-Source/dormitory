@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'reversion',
-    'login.apps.LoginConfig',
+    'student.apps.LoginConfig',
 ]
 
 MIDDLEWARE = [
@@ -105,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+SESSION_SERIALIZER  = 'django.contrib.sessions.serializers.PickleSerializer'
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 

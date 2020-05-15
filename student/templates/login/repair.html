@@ -22,7 +22,7 @@
 
     <div class="col-md-2">
         <div class="list-group">
-            <a href="#" class="list-group-item active">
+            <a href="/index/pw/" class="list-group-item active">
                 <h4 class="list-group-item-heading">
                     个人中心
                 </h4>
@@ -49,7 +49,7 @@
                     水电余额及充值
                 </p>
             </a>
-            <a href="#" class="list-group-item">
+            <a href="/index/repair/" class="list-group-item">
                 <h4 class="list-group-item-heading">申报维修</h4>
                 <p class="list-group-item-text">维修</p>
             </a>
@@ -68,24 +68,41 @@
 
     </div>
     <div class="col-md-8">
-        <h1>违纪信息</h1>
-        <table>
-        <tr>
-            <th>姓名</th>
-            <th>违纪原因</th>
-            <th>违纪时间</th>
-        </tr>
-        {% for mistake in mistake_list %}
-            <tr>
-                <td>{{ request.session.user_name }}</td>
-                <td>{{ mistake.case }}</td>
-                <td>{{ mistake.date }}</td>
-            </tr>
-        {% endfor %}
+        <h1>申报维修</h1>
+        <br>
+        <br>
+        <label for="name">维修方面：</label>
 
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 宿舍门窗相关
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">宿舍电力相关
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">宿舍桌床相关
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">宿舍水管相关
+            </label>
+        </div>
+        <form role="form" action="#" method="post">
+             {% csrf_token %}
+            <div class="form-group">
+                <label for="name">维修具体原因：</label>
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+             <button type="submit" class="btn btn-primary">申请维修</button>
 
+        </form>
 
-        </table>
     </div>
 </div>
 </body>

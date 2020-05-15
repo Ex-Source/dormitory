@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link href="{% static 'login/css/index.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div >
+    <h1>{{ request.session.user_name }}</h1>
+    <p >
+        <a href="/logout/">登出</a>
+    </p>
+</div>
+
+<div class="row">
+
+
+    <div class="col-md-2">
+        <div class="list-group">
+            <a href="/index/pw/" class="list-group-item active">
+                <h4 class="list-group-item-heading">
+                    个人中心
+                </h4>
+            </a>
+            <a href="/index/info/" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    违纪信息
+                </h4>
+                <p class="list-group-item-text">
+                    信息
+                </p>
+            </a>
+
+            <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">
+                    宿舍情况
+                </h4>
+            </a>
+            <a href="/index/pay/" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    水电缴费
+                </h4>
+                <p class="list-group-item-text">
+                    水电余额及充值
+                </p>
+            </a>
+            <a href="/index/repair/" class="list-group-item">
+                <h4 class="list-group-item-heading">申报维修</h4>
+                <p class="list-group-item-text">维修</p>
+            </a>
+
+        </div>
+
+
+
+
+
+        <div class="list-group">
+
+        </div>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-8">
+        <h1>密码修改</h1>
+
+        <form class="form-horizontal" role="form" action="/index/pw/"  method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-4">
+                    <input type="password" class="form-control" id="inputPassword" name="pw1" placeholder="请输入密码">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">确认密码</label>
+                <div class="col-sm-4">
+                    <input type="password" class="form-control" id="inputPassword" name="pw2" placeholder="请输入密码">
+                </div>
+                 <button type="submit" class="btn btn-primary">确认修改</button>
+            </div>
+        </form>
+        <div class="alert alert-warning">{{ message }}</div>
+
+
+    </div>
+</div>
+</body>
+</html>

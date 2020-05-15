@@ -30,6 +30,8 @@ class Mistake(models.Model):
 class Room(models.Model):
     room_id = models.CharField(max_length=3,verbose_name='宿舍号')
     room_building =models.ForeignKey(to='Building',verbose_name='宿舍楼',on_delete=models.CASCADE)
+    room_water = models.FloatField(verbose_name='水费')
+    room_electricity = models.FloatField(verbose_name='电费')
 
     def __str__(self):
         return self.room_id
